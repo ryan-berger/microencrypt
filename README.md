@@ -1,6 +1,7 @@
 # Microencrypt
 ## What:
-An http "microservice" that will asymmetrically encrypt whatever you hand it.
+An http "microservice" that will asymmetrically encrypt whatever you hand it using
+Kevin Burke's [bcrypt](https://github.com/kevinburke/nacl) wrapper
 ## Why:
 I have written this code way too many times for scrapers. This endpoint is super
 useful when you need to encrypt user data (username/password) for scrapers, but 
