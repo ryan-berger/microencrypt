@@ -8,11 +8,11 @@ import (
 	"encoding/base64"
 )
 
-type AsymmetricEncrypt struct {
+type MicroEncrypt struct {
 	Key string
 }
 
-func (asymmetric *AsymmetricEncrypt) ServeHTTP(r *http.Request, rw http.ResponseWriter) {
+func (asymmetric *MicroEncrypt) ServeHTTP(r *http.Request, rw http.ResponseWriter) {
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
@@ -39,6 +39,6 @@ func (asymmetric *AsymmetricEncrypt) ServeHTTP(r *http.Request, rw http.Response
 	rw.Write([]byte(`{"message": "` + message + `" }`))
 }
 
-func NewAsymmetricEncrypt(key string) *AsymmetricEncrypt {
-	return &AsymmetricEncrypt{Key: key}
+func NewMicroEncrypt(key string) *MicroEncrypt {
+	return &MicroEncrypt{Key: key}
 }

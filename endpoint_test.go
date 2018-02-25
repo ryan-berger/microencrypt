@@ -25,7 +25,7 @@ func (writeTest *HttpWriteTester) WriteHeader(header int) {
 }
 
 func TestAsymmetricEncrypt_ServeHTTPBadKey(t *testing.T) {
-	asymmetricEncrypt := NewAsymmetricEncrypt("")
+	asymmetricEncrypt := NewMicroEncrypt("")
 	tester := &HttpWriteTester{
 		test: t,
 		onWriteHeader: func(header int) {
@@ -38,7 +38,7 @@ func TestAsymmetricEncrypt_ServeHTTPBadKey(t *testing.T) {
 }
 
 func TestAsymmetricEncrypt_ServeHTTPEmpty(t *testing.T) {
-	asymmetricEncrypt := NewAsymmetricEncrypt("")
+	asymmetricEncrypt := NewMicroEncrypt("")
 	tester := &HttpWriteTester{
 		test: t,
 		onWriteHeader: func(header int) {
@@ -51,7 +51,7 @@ func TestAsymmetricEncrypt_ServeHTTPEmpty(t *testing.T) {
 }
 
 func TestAsymmetricEncrypt_ServeHTTPSuccess(t *testing.T) {
-	asymmetricEncrypt := NewAsymmetricEncrypt("c5781adee495dfa51cfb8e2d357a0e90ba7be0a6f55fe557b89800ae7240df3b")
+	asymmetricEncrypt := NewMicroEncrypt("c5781adee495dfa51cfb8e2d357a0e90ba7be0a6f55fe557b89800ae7240df3b")
 
 	tester := &HttpWriteTester {
 		test: t,
