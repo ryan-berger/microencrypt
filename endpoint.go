@@ -15,6 +15,9 @@ type MicroEncrypt struct {
 func (asymmetric *MicroEncrypt) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
+
+	rw.Header().Add("Content-Type", "application/json")
+
 	if err != nil {
 		rw.WriteHeader(500)
 		rw.Write([]byte(`{"error": "Error reading body"}`))
