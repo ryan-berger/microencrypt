@@ -12,7 +12,7 @@ type MicroEncrypt struct {
 	Key string
 }
 
-func (asymmetric *MicroEncrypt) ServeHTTP(r *http.Request, rw http.ResponseWriter) {
+func (asymmetric *MicroEncrypt) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
